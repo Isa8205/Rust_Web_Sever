@@ -1,6 +1,6 @@
 use std::{io::Write, net::TcpListener, sync::{Arc, Mutex}};
 
-use crate::{core::{request::Request, response::Response, routing::{Route, Router}}, threadpool::ThreadPool, utils::connection::handle_connection};
+use crate::{core::routing::{Route, Router}, http::{Request, Response, handle_connection}, threadpool::ThreadPool};
 
 pub struct Server {
     routes: Arc<Mutex<Vec<Route>>>,

@@ -1,13 +1,27 @@
 use std::sync::{Arc, Mutex};
 
-use crate::core::{request::Request, response::Response};
-
+use crate::http::{Request, Response};
 
 pub struct Router {
     routes: Vec<Route>
 }
 
 impl Router {
+    /// Instanciates a new `Router` struct. It comes with an empty vector by default.
+    /// 
+    /// # Example
+    /// 
+    /// ```
+    /// use rust_web_server::core::routing::Router;
+    /// 
+    /// let router = Router::new();
+    /// 
+    /// ```
+    pub fn new() -> Router {
+        Router {
+            routes: Vec::new()
+        }
+    }
     /// Creates a route with the `GET` method and adds it to the routes in `Router`
     /// 
     /// # Example
